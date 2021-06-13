@@ -24,8 +24,8 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.get("/api/timestamp/:date_string", (req, res) => {
-  let dateString = req.params.date_string;
+app.get("/api/:date?", (req, res) => {
+  let dateString = req.params.date;
 
   //A 4 digit number is a valid ISO-8601 for the beginning of that year
   //5 digits or more must be a unix time, until we reach a year 10,000 problem
@@ -47,6 +47,6 @@ app.get("/api/timestamp/:date_string", (req, res) => {
 
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(61784, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
